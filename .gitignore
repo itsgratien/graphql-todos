@@ -4,3 +4,8 @@ node_modules
 #yarn.lock
 yarn.lock
 
+#git ignore
+.gitignore
+
+# environment
+.env
