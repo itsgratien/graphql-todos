@@ -8,6 +8,11 @@ const Todo = mongoose.Schema({
     description: {
         type: String,
         unique: false
+    },
+    postedBy:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
     }
 });
 
