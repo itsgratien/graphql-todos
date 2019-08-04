@@ -36,3 +36,28 @@ exports.Show = async(req, args) => {
         throw new Error(JSON.stringify('sorry something wrong please try again.'));
     }
 }
+
+//update todos
+exports.Update = async (req,args) => {
+    try {
+        await Todo.updateOne({_id: args.id},{$set:{
+            name: args.name,
+            description: args.description
+        }});
+       const message = 'todos was updated successfully.';
+       return {message};
+    } catch (error) {
+        throw new Error(JSON.stringify('sorry something wrong please try again.'));
+    }
+}
+
+//delete todos
+exports.Destroy = async (req,args) =>{
+    try {
+        await Todo.deleteOne({_id: args.id});
+        const message = 'todos removed successfully.';
+        return { message };
+    } catch (error) {
+        throw new Error(JSON.stringify('sorry something wrong please try again.'));
+    }
+}

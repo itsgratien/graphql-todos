@@ -1,4 +1,5 @@
 const {verifyEmail, verifyAuthentication} = require('./User');
+const {verifyTodos} = require('./Todo');
 
 exports.combineMiddleware = {
     Query:{
@@ -6,6 +7,10 @@ exports.combineMiddleware = {
     },
     Mutation:{
         Signin: verifyEmail,
-        createTodos: verifyAuthentication
+        createTodos: verifyAuthentication,
+        updateTodos: verifyAuthentication,
+        updateTodos: verifyTodos,
+        deleteTodos: verifyAuthentication,
+        deleteTodos: verifyTodos
     }
 };

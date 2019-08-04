@@ -22,8 +22,13 @@ const TodoSchema = `
    postedBy: ID!
 
 }
+type Message{
+  message: String!
+}
 type Mutation{
     createTodos(name: String!, description: String!): Todo!
+    updateTodos(id:ID!, name:String!, description: String!): Message!
+    deleteTodos(id:ID!): Message!
 }
 `;
 

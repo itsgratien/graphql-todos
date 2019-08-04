@@ -1,4 +1,4 @@
-const {Index, Store, Show } = require('../controllers/Todo');
+const {Index, Store, Show, Update, Destroy } = require('../controllers/Todo');
 
 module.exports = {
   Query:{
@@ -7,6 +7,8 @@ module.exports = {
       GetSingleTodo: Show
   },
   Mutation:{
-      createTodos: Store
+      createTodos: Store,
+      updateTodos: Update,
+      deleteTodos: Destroy
   }
 }
