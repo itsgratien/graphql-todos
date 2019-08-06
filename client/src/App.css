@@ -1,0 +1,18 @@
+*,body{
+    font-family: "Operator Mono"!important;
+}
+.logo{
+    width: 50px;
+}
+
+.App{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.App-intro{
+    margin: auto;
+    text-align: center;
+}
