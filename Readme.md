@@ -45,8 +45,10 @@ mutation {
 - run npm install
 
 ```
+## Frontend ScreenShoot
+<img width="1440" alt="Screen Shot 2019-08-06 at 21 46 09" src="https://user-images.githubusercontent.com/27460888/62572302-af2a5080-b893-11e9-8897-bdee8b17fedd.png">
 
-## ScreenShoot
+## Backend ScreenShoot
 <img width="1440" alt="Screen Shot 2019-08-02 at 20 04 42" src="https://user-images.githubusercontent.com/27460888/62389719-d665e280-b560-11e9-91dc-c14e1186ea2f.png">
 
 ## Author 
