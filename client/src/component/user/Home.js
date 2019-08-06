@@ -27,17 +27,17 @@ class Home extends Component {
                              return 'loading ...'
                          }
                         if(data){
-                            const { Todos } = data;
-                            return Todos.map((todo) => <div className="col-md-4" key={todo.id}>
-                                <div className="card">
-                                    <div className="card-body">
-                                        <h5 className="card-title">{todo.name}</h5>
-                                        <p className="card-tex">
-                                            {todo.description}
-                                        </p>
-                                    </div>
+                        const { Todos } = data;
+                        return Todos.map((todo) => <div className="col-md-4" key={todo.id}>
+                            <div className="card">
+                                <div className="card-body">
+                                    <h5 className="card-title">{todo.name}</h5>
+                                    <p className="card-tex">
+                                        {todo.description}
+                                    </p>
                                 </div>
-                            </div>)
+                            </div>
+                        </div>)
                         }
                      }}
                     </Query>
