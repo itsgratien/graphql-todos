@@ -7,9 +7,14 @@ import Home from './component/user/Home';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
+
 //connect our backend
+const token = localStorage.getItem('token');
 const client = new ApolloClient({
-  uri: 'http://localhost:5000/graphql'
+  uri: 'http://localhost:5000/graphql',
+  headers:{
+    "Authorization": token
+  }
 });
 
 class App extends Component{

@@ -3,13 +3,13 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 //require database connection 
 require('./src/connection/database');
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 //Schema
 const Schema = require('./src/graphQL/schema');
 //Resolvers
 const resolvers = require('./src/graphQL/resolvers'); 
 //middleware
-const {combineMiddleware} = require('./src/graphQL/middlewares');
+const { combineMiddleware } = require('./src/graphQL/middlewares');
 //context
 const { verifyToken } = require('./src/graphQL/utils');
 const typeDefs = Schema;
@@ -17,7 +17,7 @@ const typeDefs = Schema;
 const server = new GraphQLServer({
     typeDefs,
     resolvers,
-    middlewares: combineMiddleware,
+    middlewares: [combineMiddleware],
     context: verifyToken
 });
 
