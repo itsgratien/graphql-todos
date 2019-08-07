@@ -1,6 +1,6 @@
 const User = require('../models/User');
 
-exports.verifyEmail = async(resolve, parent, args) => {
+exports.verifyEmail = async (resolve,parent, args, ctx, info) => {
   try {
       const verify = await User.findOne({email: args.email});
     if (!verify){
@@ -15,15 +15,14 @@ exports.verifyEmail = async(resolve, parent, args) => {
 
 exports.verifyAuthentication = async(resolve, parent, args, ctx) => {
   try {
-  //  return resolve();
   const {id} =ctx;
   const find = await User.findById(id);
   if(!find) {
-    throw new Error(JSON.stringify('sorry, you must be authenticated to perform this action'));
+    throw new Error('sorry, you must be authenticated to perform this action');
   }
   const user = ctx;
   return resolve({user});
   } catch (error) {
     throw new Error(error)
   }
-}
+};

@@ -38,14 +38,16 @@ exports.Show = async(req, args) => {
 }
 
 //update todos
-exports.Update = async (req,args) => {
+exports.Update = async (req,args, ctx) => {
     try {
-        await Todo.updateOne({_id: args.id},{$set:{
-            name: args.name,
-            description: args.description
-        }});
-       const message = 'todos was updated successfully.';
-       return {message};
+        await Todo.updateOne({ _id: args.id }, {
+            $set: {
+                name: args.name,
+                description: args.description
+            }
+        });
+        const message = 'todos was updated successfully.';
+    return { message };
     } catch (error) {
         throw new Error(JSON.stringify('sorry something wrong please try again.'));
     }
