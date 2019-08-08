@@ -3,6 +3,7 @@ import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import logo from  '../../image/rocket.svg'; 
 import Navbar from '../common/Navbar';
+import CreateTodo from '../todo/Create';
 
 const POST_QUERY = gql`{
     Todos{
@@ -16,7 +17,17 @@ const POST_QUERY = gql`{
 }`;
 
 class Home extends Component {
+    state = {
+        show: false
+    }
+
+    open = () =>{
+        //check if token is there
+        if (!localStorage.getItem('graphQlToken')) window.location.replace('/login');
+       this.setState({show: true});
+    }
     render() {
+        const {show} = this.state;
         return (
             <div className="App">
                 <Navbar />
@@ -33,7 +44,7 @@ class Home extends Component {
                          }
                         if(data){
                         const { Todos } = data;
-                        return <Fragment>
+                        return (<Fragment>
                             {Todos.map((todo) => <div className="col-md-4" key={todo.id}>
                                 <div className="card">
                                     <div className="card-body">
@@ -47,11 +58,12 @@ class Home extends Component {
                                     </div>
                                 </div>
                             </div>)}
-                            <div className="addTodos">+</div>
-                        </Fragment>
+                        </Fragment>)
                         }
                      }}
                     </Query>
+                    <div className="addTodos" role="button" onClick={this.open}>+</div>
+                    <CreateTodo show={show} />
                   </div>
               </div>
               <div className="footer">

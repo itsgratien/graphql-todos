@@ -71,3 +71,9 @@ input, button{
     right: 0;
     margin-right: 30px;
 }
+.changeModalDialog{
+    margin: 0!important;
+}
+.modal-dialog{
+    margin-top: 150px;
+}
