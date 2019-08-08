@@ -9,7 +9,7 @@ import './App.css';
 
 
 //connect our backend
-const token = localStorage.getItem('token');
+const token = localStorage.getItem('graphQlToken');
 const client = new ApolloClient({
   uri: 'http://localhost:5000/graphql',
   headers:{

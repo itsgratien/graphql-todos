@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react';
 import { Mutation } from 'react-apollo';
-import { Redirect } from 'react-router-dom';
 import gql from 'graphql-tag';
 import Input from '../common/Input';
 import logo from '../../image/rocket.svg';
@@ -63,7 +62,7 @@ class Login extends Component {
                       const {Signin} = data;
                       if(Signin){
                         localStorage.setItem('graphQlToken', Signin.token);
-                        return <Redirect to="/"/>
+                        return window.location.href = '/';
                       }else{
                         return null;
                       }

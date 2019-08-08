@@ -33,3 +33,14 @@ exports.Signin = async (req,args) =>{
         throw new Error(error);
     }
 }
+
+//currentUser
+exports.currentUser = async(req, args) => {
+    const {id}= req.user;
+    try {
+       const find = await User.findById(id);
+       return find; 
+    } catch (error) {
+        throw new Error(error);
+    }
+}

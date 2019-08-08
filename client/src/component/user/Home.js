@@ -2,6 +2,7 @@ import React, {Component, Fragment} from 'react';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import logo from  '../../image/rocket.svg'; 
+import Navbar from '../common/Navbar';
 
 const POST_QUERY = gql`{
     Todos{
@@ -18,6 +19,7 @@ class Home extends Component {
     render() {
         return (
             <div className="App">
+                <Navbar />
               <div className="App-intro mb-5">
                <img src={logo} alt="logo" className="logo mt-5"/>
                     <h5 className="text-center mt-3"> <b>GraphQL Todos</b> </h5>
