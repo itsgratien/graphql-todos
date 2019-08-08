@@ -28,9 +28,16 @@ class Navbar extends Component {
                                         return <div>Loading ...</div>
                                     }
                                     if (!data) {
-                                        return <li><Link to="/login">
-                                            <button type="button" className="btn btn-dark">Login</button>
-                                        </Link> </li>;
+                                        return (
+                                            <Fragment>
+                                                <li><Link to="/login">
+                                                    <button type="button" className="btn btn-dark">Login</button>
+                                                </Link> </li>
+                                                <li className="logout"><Link to="/signup">
+                                                    <button type="button" className="btn btn-danger">signup</button>
+                                                </Link> </li>
+                                            </Fragment>
+                                        );
                                     }else{
                                         const {currentUser} = data;
                                         return (<Fragment>

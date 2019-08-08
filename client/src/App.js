@@ -4,6 +4,7 @@ import ApolloClient from 'apollo-boost';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Login from './component/user/Login';
 import Home from './component/user/Home';
+import Signup from './component/user/SignUp';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
@@ -24,6 +25,7 @@ class App extends Component{
       <Router>
         <Route exact path="/" component = {Home} />
         <Route path ="/login" component = {Login} />
+        <Route path="/signup" component = {Signup} />
       </Router>
     </ApolloProvider>
   );

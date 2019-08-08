@@ -15,8 +15,8 @@ export const POST_MUTATION = gql`
 
 class Login extends Component {
     state = {
-        email: '',
-        password: ''
+        email: null,
+        password: null
     }
     onChange = e =>{
         this.setState({[e.target.name]: e.target.value});
@@ -42,20 +42,32 @@ class Login extends Component {
                      {(login, result)=>{
                        const { data, loading, error, called } = result;
                       const button = <button type="button" className="btn btn-dark" onClick={login}> Signin </button>;
-                       if(!called){
+                      if(!called){
                          return button;
                        }
+                      if (!password || !email) {
+                        return (
+                          <Fragment>
+                            {button}
+                            <div className="alert alert-danger size mt-2">please all field are required.</div>
+                          </Fragment>
+                        );
+                      }
                        if(loading){
                          return (<Fragment>
                            {button}
                          loading ....</Fragment>);
                        }
                       if (error) {
-                        const { message } = error.graphQLErrors[0];
+                        // console.log(JSON.stringify(error));
+                        let message;
+                        if (Object.keys(error.graphQLErrors).length!==0){
+                          message = JSON.stringify(error.graphQLErrors[0].message);
+                        }
                         return (
                           <Fragment>
                             {button}
-                            <div className="alert alert-danger size mt-2">{message}</div>
+                           <div className="alert alert-danger size mt-2">{message}</div>
                           </Fragment>
                         );
                       }
