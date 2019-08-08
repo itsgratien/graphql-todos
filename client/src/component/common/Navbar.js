@@ -42,7 +42,7 @@ class Navbar extends Component {
                                         const {currentUser} = data;
                                         return (<Fragment>
                                             <li><Link to="/">
-                                                <strong className="username">Hi {currentUser.username}</strong>
+                                                <strong className="username">{currentUser ? `Hi ${currentUser.username}` : ''}</strong>
                                             </Link><br /><br /></li>
                                             <li className="logout">
                                                 <button type="button" className="btn btn-dark" onClick={this.logout}>Logout</button>
