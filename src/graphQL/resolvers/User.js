@@ -1,6 +1,9 @@
- const {Signup, Signin} = require('../controllers/User');
+ const {Signup, Signin, currentUser} = require('../controllers/User');
 
  module.exports = {
+     Query:{
+         currentUser
+     },
      Mutation:{
          Signup,
          Signin
